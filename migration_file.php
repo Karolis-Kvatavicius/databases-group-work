@@ -110,6 +110,7 @@ function generateBudget() {
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Pavadinimas VARCHAR(30) NOT NULL,
     Biudzetas INT(15) NOT NULL,
+    DestytojoID VARCHAR(30) NULL,
     reg_date TIMESTAMP
     )";
     mysqli_query($conn, $sql);
@@ -128,7 +129,6 @@ function generateBudget() {
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Vardas VARCHAR(30) NOT NULL,
     Pavarde VARCHAR(30) NOT NULL,
-    DestytojoID VARCHAR(30) NULL,
     reg_date TIMESTAMP
     )";
     mysqli_query($conn, $sql);
@@ -153,13 +153,13 @@ function generateBudget() {
         unset($sql);
         
 
-        $sql = "SELECT id FROM projektu_sarasas";
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-                $sql2 = "INSERT INTO connections (ProjektoID) VALUES ('".$row['id']."')";
-                mysqli_query($conn, $sql2);
-                unset($sql2);
-            }
-        }
-        unset($sql);
+        // $sql = "SELECT id FROM projektu_sarasas";
+        // $result = mysqli_query($conn, $sql);
+        // if (mysqli_num_rows($result) > 0) {
+        //     while($row = mysqli_fetch_assoc($result)) {
+        //         $sql2 = "INSERT INTO connections (ProjektoID) VALUES ('".$row['id']."')";
+        //         mysqli_query($conn, $sql2);
+        //         unset($sql2);
+        //     }
+        // }
+        // unset($sql);

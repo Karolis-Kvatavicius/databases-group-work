@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(isset($_GET['logout']) && $_GET['logout'] == 1){
+    session_destroy();
+    header('Location:'.$_GET['uri'].'login.php');
+    exit;
+}
+
 if(isset($_SESSION['sesija']) && $_SESSION['sesija'] == true){
     header('Location:'.$_GET['uri'].'index.php');
     exit;
@@ -53,17 +59,18 @@ if(isset($_POST['login'])){
         $slaptazodisDB = $row['slaptazodis'];
         
     } else {
-         echo "Nera";
+        header('Location:'.$_GET['uri'].'login.php');
+         exit;
   }
-     
 
-    if($_POST['password'] == $slaptazodisDB) {
+ 
+  if($_POST['password'] == $slaptazodisDB ) {
 
-        $_SESSION['sesija'] = true;
-        $_SESSION['username'] = $_POST['username'];
-        header('Location:'.$uri.'index.php');
-        exit;
-     }
+    $_SESSION['sesija'] = true;
+    $_SESSION['username'] = $_POST['username'];
+    header('Location:'.$uri.'index.php');
+    exit;
+}
     
     }
     
@@ -72,14 +79,13 @@ if(isset($_POST['login'])){
     
     ?>
     
-    <div style="display: flex; justify-content: center;">
-    <div style = "width: 320px; border: solid 1px #333333;">
+    <div align = "center">
+    <div style = "width:300px; border: solid 1px #333333; " align = "left">
     <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
     <div style = "margin:30px">
-    <!-- <h1>LOGIN</h1> -->
     <form action = "login.php" method = "post" >
-    <label>UserName  : </label><input type = "text" name = "username" class = "box"/><br /><br />
-    <label>Password  : </label><input type = "password" name = "password" class = "box" /><br/><br />
+    <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
+    <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
    
     <br>
     <br>

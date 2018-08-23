@@ -9,6 +9,8 @@ if(!isset($_SESSION['sesija']) || !$_SESSION['sesija'] == true){
    header('Location:'.$uri.'login.php');
    exit;
  }
+$uri = $_GET['uri']??'';
+
 $servername = "localhost";
 $username = 'root';
 $password = '123';
@@ -27,6 +29,23 @@ if (!$conn) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $mode?></title>
 </head>
-<body>
-<header>
-</header>
+<body style = "margin: 0px;  background-color:rgba(211, 211, 211, 0.14901960784313725);">
+
+<div style="font-size: 20px; display: flex; justify-content: space-around; background-color:  rgb(245, 243, 243);">
+<img src="logo.png"> 
+<a href="<?= $mode?>"></a><br>
+<a  style="margin-top: 18px;" href="<?= $uri.'destytoju_sarasas.php?uri='.$uri ?>">Dėstytojų sąrašas(Mariaus)</a><br>
+<br>
+<a style="margin-top: 18px;" href="<?= $uri.'projektu_sarasas.php?uri='.$uri ?>">Projektų sąrašas(Jono)</a><br>
+<br>
+<a style="margin-top: 18px;" href="<?= $uri.'projektai.php?uri='.$uri ?>">Projektai(Karolis)</a><br>
+<br><br>
+<a style="margin-top: 18px;"  href="<?= $uri.'passwordChange.php?uri='.$uri ?>"> Keisti_slaptazodi</a>
+<br>
+<br>
+<a style="margin-top: 18px;"  href="<?= $uri.'login.php?logout=1&uri='.$uri ?>">Logout</a>
+</div>
+
+<div>
+<a style="font-size: 18px; font-weight: bold; padding: 30px; display: block;" href="<?= $uri.'index.php?uri='.$uri ?>">Get back to index page</a>
+</div>
