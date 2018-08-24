@@ -16,6 +16,21 @@ function generateName() {
     return ucfirst($randomName);
 }
 
+function generateCompanyName() {
+
+    $nameLength = rand(5, 7);
+    $characters = 'abcdefghijklmnopqrstuvwxyz';
+    $charactersLength = strlen($characters);
+    $randomName = '';
+    
+
+    for ($i = 0; $i < $nameLength; $i++) {
+        $randomName .= $characters[rand(0, $charactersLength - 1)];
+    }  
+
+    return strtoupper($randomName);
+}
+
 function generateSurname() {
     $surnameLength = rand(7, 12);
     $characters = 'abcdefghijklmnopqrstuvwxyz';
@@ -119,7 +134,7 @@ function generateBudget() {
     //fill projects table
     for ($i = 0; $i < 100; $i++) { 
         $sql = "INSERT INTO projektu_sarasas (Pavadinimas, Biudzetas)
-        VALUES ('".generateName()."', '".generateBudget()."')";
+        VALUES ('".generateCompanyName()."', '".generateBudget()."')";
         mysqli_query($conn, $sql);
         unset($sql);  
     }

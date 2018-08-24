@@ -9,6 +9,7 @@ if(!isset($_SESSION['sesija']) || !$_SESSION['sesija'] == true){
    header('Location:'.$uri.'login.php');
    exit;
  }
+ 
 $uri = $_GET['uri']??'';
 
 $servername = "localhost";
@@ -46,6 +47,9 @@ if (!$conn) {
 <a style="margin-top: 18px;"  href="<?= $uri.'login.php?logout=1&uri='.$uri ?>">Logout</a>
 </div>
 
+<?php if(!isset($_GET['link'])){?>
 <div>
-<a style="font-size: 18px; font-weight: bold; padding: 30px; display: block;" href="<?= $uri.'index.php?uri='.$uri ?>">Get back to index page</a>
+<a style="font-size: 18px; font-weight: bold; padding: 30px; display: block;" href="<?= $uri.'index.php?uri='.$uri.'&link=1' ?>">Get back to index page</a>
 </div>
+<?php
+}

@@ -68,7 +68,7 @@ if(isset($_POST['login'])){
 
     $_SESSION['sesija'] = true;
     $_SESSION['username'] = $_POST['username'];
-    header('Location:'.$uri.'index.php');
+    header('Location:'.$uri.'index.php?link=1');
     exit;
 }
     
