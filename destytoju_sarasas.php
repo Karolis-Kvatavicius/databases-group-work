@@ -6,13 +6,12 @@ include 'header.php';
 
 ?>
 
-<form action="destytoju_sarasas.php" method="get">
-<input type="text" name="vardas" value=""/>
-<input type="text" name="pavarde" value=""/><br>
-<input type="submit" name="m" value="Pasirinkti">
-</form>
-
+<form style="padding: 20px;" action="destytoju_sarasas.php" method="get">
+<h3>Vardas</h3><input type="text" name="vardas" value="" placeholder="Vardas"/>
+<h3>Pavarde</h3><input type="text" name="pavarde" value="" placeholder="Pavarde"/><br>
 <br>
+<input type="submit" name="m" value="Pridėti">
+</form>
 
 <?php
 if(isset($_GET['m'])) {
@@ -52,11 +51,11 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
 ?>
 
-<form action="destytoju_sarasas.php" method="POST">
+<form style="padding: 20px;" action="destytoju_sarasas.php" method="POST">
 
 <?php
    while($row = mysqli_fetch_assoc($result)) {
-       echo "Dėstytojas: " .$row["id"]. " ". $row["Vardas"]. " " . $row["Pavarde"]. " ". '<input type="submit" name=id_'.$row["id"].' value="DELETE">'. '<br>';
+       echo "Dėstytojas: " .$row["id"]. " ". $row["Vardas"]. " " . $row["Pavarde"]. " ". '<input type="submit" name=id_'.$row["id"].' value="Trinti">'. '<br>';
    }
 } else {
    echo "0 results";

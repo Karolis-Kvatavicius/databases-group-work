@@ -32,14 +32,14 @@ if(isset($_GET['project'])) {
 
     echo '<div style="">';
     if (mysqli_num_rows($result) > 0) {
-      echo '<a href="'.$uri.'projektai.php?uri='.$uri.'&project='.$_GET['project'].'" style="text-decoration: none; border: 1px solid darkblue; margin: 20px; display: block; width: 120px; text-align: center;">Grįžti atgal</a>';
+      echo '<a href="'.$uri.'projektai.php?uri='.$uri.'&project='.$_GET['project'].'" style="text-decoration: none; border: 1px solid darkblue; margin: 20px; display: inline-block; width: 120px; text-align: center;">Grįžti atgal</a>';
       while($row = mysqli_fetch_assoc($result)) {
           echo '<div style="border-bottom: 1px solid black;">';
           echo '<p style="padding: 10px; box-sizing: border-box; display: inline-block;"><b>Dėstytojo ID: </b>'.$row['DestytojoID'].'<b> Pavadinimas: </b>' . $row['Pavadinimas']. '<b> Biudzetas: </b>' . $row['Biudzetas'].'</p>';
           echo '</div>';
       }
     } else {
-      echo '<a href="'.$uri.'projektai.php?uri='.$uri.'&project='.$_GET['project'].'" style="text-decoration: none; border: 1px solid darkblue; margin: 20px; display: block; width: 120px; text-align: center;">Grįžti atgal</a>';
+      echo '<a href="'.$uri.'projektai.php?uri='.$uri.'&project='.$_GET['project'].'" style="text-decoration: none; border: 1px solid darkblue; margin: 20px; display: inline-block; width: 120px; text-align: center;">Grįžti atgal</a>';
       echo "<p>0 results</p>";
     }
     echo '</div>';
@@ -51,7 +51,7 @@ if(isset($_GET['project'])) {
 
     echo '<div style="">';
     if (mysqli_num_rows($result) > 0) {
-      echo '<a href="'.$uri.'projektai.php?uri='.$uri.'" style="text-decoration: none; border: 1px solid darkblue; margin: 20px; display: block; width: 120px; text-align: center;">Grįžti atgal</a>';
+      echo '<a href="'.$uri.'projektai.php?uri='.$uri.'" style="text-decoration: none; border: 1px solid darkblue; margin: 20px; display: inline-block; width: 120px; text-align: center;">Grįžti atgal</a>';
       while($row = mysqli_fetch_assoc($result)) {
           echo '<div style="border-bottom: 1px solid black;">';
           echo '<p style="padding: 10px; box-sizing: border-box; display: inline-block;"><b>Dėstytojo ID: </b>'.$row['id'].'<b> Vardas: </b>' . $row['Vardas']. '<b> Pavarde: </b>' . $row['Pavarde']. 
@@ -73,7 +73,7 @@ if(isset($_GET['project'])) {
   $result = mysqli_query($conn, $sql);
 echo '<div style="">';
 if (mysqli_num_rows($result) > 0) {
-  echo '<a href="'.$uri.'projektai.php?uri='.$uri.'" style="text-decoration: none; border: 1px solid darkblue; margin: 20px; display: block; width: 120px; text-align: center;">Grįžti atgal</a>';
+  echo '<a href="'.$uri.'projektai.php?uri='.$uri.'" style="text-decoration: none; border: 1px solid darkblue; margin: 20px; display: inline-block; width: 120px; text-align: center;">Grįžti atgal</a>';
   while($row = mysqli_fetch_assoc($result)) {
       echo '<div style="border-bottom: 1px solid black;">';
       echo '<p style="padding: 10px; box-sizing: border-box;"><b>Projekto ID: </b>'.$row['id'].'<b> Projekto pavadinimas: </b>'.$row['Pavadinimas'].'<b> Projekto Biudžetas: </b>'.$row['Biudzetas'].
@@ -83,7 +83,7 @@ if (mysqli_num_rows($result) > 0) {
   }
 
 } else {
-  echo '<a href="'.$uri.'projektai.php?uri='.$uri.'" style="text-decoration: none; border: 1px solid darkblue; margin: 20px; display: block; width: 120px; text-align: center;">Grįžti atgal</a>';
+  echo '<a href="'.$uri.'projektai.php?uri='.$uri.'" style="text-decoration: none; border: 1px solid darkblue; margin: 20px; display: inline-block; width: 120px; text-align: center;">Grįžti atgal</a>';
   echo "<p>0 results</p>";
 }
 echo '</div>';
@@ -103,7 +103,7 @@ if (mysqli_num_rows($result) > 0) {
   margin: 20px; display: inline-block; width: 260px; text-align: center;">Anuliuoti rikiavimą</a>';
   while($row = mysqli_fetch_assoc($result)) {
       echo '<div style="border-bottom: 1px solid black;">';
-      echo '<p style="padding: 10px; box-sizing: border-box;"><b>Projekto ID: </b>'.$row['id'].'<b> Pavadinimas: </b>' . $row['Pavadinimas']. '<b> Biudzetas: </b>' . $row['Biudzetas']. 
+      echo '<p style="padding: 10px; box-sizing: border-box; display: inline-block;"><b>Projekto ID: </b>'.$row['id'].'<b> Pavadinimas: </b>' . $row['Pavadinimas']. '<b> Biudzetas: </b>' . $row['Biudzetas']. 
       '<a href="'.$uri.'projektai.php?uri='.$uri.'&project='.$row['id'].
       '" style="text-decoration: none; border: 1px solid darkblue; margin-left: 20px;"> Priskirti dėstytoją</a></p>';
       echo '</div>';
@@ -126,7 +126,7 @@ if (mysqli_num_rows($result) > 0) {
   margin: 20px; display: inline-block; width: 260px; text-align: center;">Rikiuoti pagal didžiausią biudžetą</a>';
   while($row = mysqli_fetch_assoc($result)) {
       echo '<div style="border-bottom: 1px solid black;">';
-      echo '<p style="padding: 10px; box-sizing: border-box;"><b>Projekto ID: </b>'.$row['id'].'<b> Pavadinimas: </b>' . $row['Pavadinimas']. '<b> Biudzetas: </b>' . $row['Biudzetas']. 
+      echo '<p style="padding: 10px; box-sizing: border-box; display: inline-block;"><b>Projekto ID: </b>'.$row['id'].'<b> Pavadinimas: </b>' . $row['Pavadinimas']. '<b> Biudzetas: </b>' . $row['Biudzetas']. 
       '<a href="'.$uri.'projektai.php?uri='.$uri.'&project='.$row['id'].
       '" style="text-decoration: none; border: 1px solid darkblue; margin-left: 20px;"> Priskirti dėstytoją</a></p>';
       echo '</div>';
